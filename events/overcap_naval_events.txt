@@ -1,5 +1,6 @@
 namespace = overcap_naval
 
+#change this to change the penalty for being over naval cap, 0 is normal upkeep, 1x is doubled etc
 @overcap_naval_mult = 2
 
 # upkeep over cap
