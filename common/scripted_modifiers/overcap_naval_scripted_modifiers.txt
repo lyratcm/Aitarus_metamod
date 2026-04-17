@@ -1,0 +1,4 @@
+ships_upkeep_mult_offset = {
+	good = yes
+	category = ship
+}

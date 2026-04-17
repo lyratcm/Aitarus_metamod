@@ -1,0 +1,4 @@
+naval_cap_perc_modifier = {
+    ships_upkeep_mult = 1
+}
+

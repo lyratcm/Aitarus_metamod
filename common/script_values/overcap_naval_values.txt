@@ -1,0 +1,7 @@
+#ships_upkeep_mult + 1 so can be used as a mult
+ships_upkeep_mult_mult = {
+    base = 1
+    add = modifier:ships_upkeep_mult
+    #an offset so that the modifier doesn't stack w/ its self
+    subtract = modifier:ships_upkeep_mult_offset
+}

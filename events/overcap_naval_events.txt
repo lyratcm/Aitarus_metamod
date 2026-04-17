@@ -1,0 +1,49 @@
+namespace = overcap_naval
+
+@overcap_naval_mult = 2
+
+# upkeep over cap
+# on_monthly_pulse_country
+country_event = {
+    id = overcap_naval.1
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        #var_check isn't used any where so will always be 0
+        check_variable_arithmetic = {
+            which = var_check
+            add = 1
+            # will check if 1 is less than the used naval cap so above naval cap
+            value < controller.trigger:used_naval_capacity_percent
+        }
+    }
+
+    immediate = {
+        #done in fleet scope account for system/starbase/leader modifiers
+        every_controlled_fleet = {
+            #get amount over naval cap
+            set_variable = {
+                which = used_naval_capacity_percent_var
+                value = controller.trigger:used_naval_capacity_percent
+            }
+            # increase/reduce by ship upkeep modifiers
+            multiply_variable = {
+                which = used_naval_capacity_percent_var
+                value = ships_upkeep_mult_mult
+            }
+            # increase the overcap upkeep by the extra upkeep
+            multiply_variable = {
+                which = used_naval_capacity_percent_var
+                #in a scripted variable so can be used in multiple places without adding extra work to change numbers
+                value = @overcap_naval_mult
+            }
+            #add modifier to every fleet
+            add_modifier = {
+                modifier = naval_cap_perc_modifier
+                mult = used_naval_capacity_percent_var
+            }
+        }
+    }
+}
+
