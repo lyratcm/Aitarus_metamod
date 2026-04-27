@@ -1,3 +1,4 @@
+#first draft by lyra
 namespace = gm_menu
 
 # On Game Start (Get Host)
