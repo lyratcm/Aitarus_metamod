@@ -22,5 +22,5 @@ gm_menu_scope_switch = {
         storms = { storm_event = { id = gm_menu.2 } }
         pop = { pop_event = { id = gm_menu.2 } }
     }
+    log = "gm menu was used. Place used: [this.getname], Solar System: [galacticobject.getname], Owner: [owner.getname]"
 }
-
