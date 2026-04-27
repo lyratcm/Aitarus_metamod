@@ -32,6 +32,7 @@ event = {
 
     #add a set of options, each one will run effect you want to do in that scope (e.g. planet)
     option = {
+        # make sure to edit/add this in gm_menu_localisation_l_english.yml to show what will be added
         name = gm_menu.2a
         # prevents adding the modifier more than once (optional)
         allow = {
