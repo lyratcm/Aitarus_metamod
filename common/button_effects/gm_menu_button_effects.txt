@@ -1,3 +1,4 @@
+#this button won't be triggerable in the final version and the trigger will be moved into a separate mod to prevent non-hosts from using it
 gm_menu_button = {
 	potential = {
 		# will never be seen

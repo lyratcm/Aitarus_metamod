@@ -12,11 +12,14 @@ country_event = {
 		NOT = { has_global_flag = gm_host_picked }
 	}
 
+    # will trigger on the first country (the host) set the flag then won't trigger a again
 	immediate = {
         set_global_flag = gm_host_picked
         set_country_flag = gm_is_host
     }
 }
+
+#all events after this are copies of each other with small variations
 
 #planet scope
 event = {
@@ -27,8 +30,10 @@ event = {
 	immediate = {
 	}
 
+    #add a set of options, each one will run effect you want to do in that scope (e.g. planet)
     option = {
         name = gm_menu.2a
+        # prevents adding the modifier more than once (optional)
         allow = {
             not = { has_modifier = seeded_planet_1_modifier }
         }
