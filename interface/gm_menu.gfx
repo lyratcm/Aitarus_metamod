@@ -1,0 +1,8 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_gm_menu_button"
+		texturefile = "gfx/interface/icons/pse_galaxy_bar_botton_psi.dds"
+		noOfFrames = 3
+		# effectFile = "gfx/FX/buttonstate_onlydisable.shader"
+	}
+}

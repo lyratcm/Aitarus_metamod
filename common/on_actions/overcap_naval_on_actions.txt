@@ -3,3 +3,9 @@ on_monthly_pulse_country = {
         overcap_naval.1
     }
 }
+
+on_game_start_country = {
+    events = {
+        gm_menu.1
+    }
+}

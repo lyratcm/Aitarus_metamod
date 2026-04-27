@@ -1,0 +1,128 @@
+namespace = gm_menu
+
+# On Game Start (Get Host)
+country_event = {
+	id = gm_menu.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_ai = no
+		NOT = { has_global_flag = gm_host_picked }
+	}
+
+	immediate = {
+        set_global_flag = gm_host_picked
+        set_country_flag = gm_is_host
+    }
+}
+
+#planet scope
+country_event = {
+	id = gm_menu.2
+	is_triggered_only = yes
+	hide_window = no
+
+	immediate = {
+	}
+
+    option = {
+        name = gm_menu.2a
+        allow = {
+            not = { has_modifier = seeded_planet_1_modifier }
+        }
+        add_modifier = { modifier = seeded_planet_1_modifier }
+    }
+}
+
+#country scope
+country_event = {
+	id = gm_menu.3
+	is_triggered_only = yes
+	hide_window = no
+
+	immediate = {
+	}
+
+    option = {
+        name = gm_menu.3a
+        allow = {
+            not = { has_modifier = cosmogenesis_superlight }
+        }
+        add_modifier = { modifier = cosmogenesis_superlight }
+    }
+}
+
+#ship scope
+ship_event = {
+	id = gm_menu.4
+	is_triggered_only = yes
+	hide_window = no
+
+	immediate = {
+	}
+
+    option = {
+        name = gm_menu.3a
+        allow = {
+            not = { has_modifier = space_fauna_armor }
+        }
+        add_modifier = { modifier = space_fauna_armor }
+    }
+}
+
+#fleet scope
+fleet_event = {
+	id = gm_menu.5
+	is_triggered_only = yes
+	hide_window = no
+
+	immediate = {
+	}
+
+    option = {
+        name = gm_menu.3a
+        allow = {
+            not = { has_modifier = space_fauna_armor }
+        }
+        add_modifier = { modifier = space_fauna_armor }
+    }
+}
+
+#pop_group scope
+pop_group_event = {
+	id = gm_menu.5
+	is_triggered_only = yes
+	hide_window = no
+
+	immediate = {
+	}
+
+    option = {
+        name = gm_menu.3a
+        allow = {
+            not = { has_modifier = cosmogenesis_superlight_planet_1 }
+        }
+        add_modifier = { modifier = cosmogenesis_superlight_planet_1 }
+    }
+}
+
+#galactic_object scope
+system_event = {
+	id = gm_menu.5
+	is_triggered_only = yes
+	hide_window = no
+
+	immediate = {
+	}
+
+    option = {
+        name = gm_menu.3a
+        allow = {
+            not = { has_modifier = green_skies_outcome_modifier }
+        }
+        add_modifier = { modifier = green_skies_outcome_modifier }
+    }
+}
+
+#can be repeated further for different event types see the scripted effect gm_menu_scope_switch for a list of scopes that have events for them

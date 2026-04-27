@@ -1,0 +1,26 @@
+gm_menu_scope_switch = {
+    #all scopes that have unqiue event effects todo: workout fallbacks
+    switch = {
+        trigger = is_scope_type
+        country = { country_event = { id = gm_menu.3 } }
+        planet = { planet_event = { id = gm_menu.2 } }
+        ship = { ship_event = { id = gm_menu.4 } }
+        fleet = { fleet_event = { id = gm_menu.5 } }
+        pop_group = { pop_group_event = { id = gm_menu.2 } }
+        pop_faction = { pop_faction_event = { id = gm_menu.2 } }
+        first_contact = { first_contact_event = { id = gm_menu.2 } }
+        starbase = { starbase_event = { id = gm_menu.2 } }
+        galactic_object = { system_event = { id = gm_menu.2 } }
+        leader = { leader_event = { id = gm_menu.2 } }
+        situation = { situation_event = { id = gm_menu.2 } }
+        agreement = { agreement_event = { id = gm_menu.2 } }
+        espionage_operation = { espionage_operation_event = { id = gm_menu.2 } }
+        #effects list says these should work but cwtools doesn't think those effects exist
+        astral_rift = { astral_rift_event = { id = gm_menu.2 } }
+        bypass = { bypass_event = { id = gm_menu.2 } }
+        cosmic_storm_influence_field = { storm_influence_event = { id = gm_menu.2 } }
+        storms = { storm_event = { id = gm_menu.2 } }
+        pop = { pop_event = { id = gm_menu.2 } }
+    }
+}
+
