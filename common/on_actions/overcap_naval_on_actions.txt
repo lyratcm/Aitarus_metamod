@@ -1,11 +1,13 @@
 on_monthly_pulse_country = {
     events = {
+        #update the extra upkeep each month
         overcap_naval.1
     }
 }
 
 on_game_start_country = {
     events = {
+        # set up the host empire
         gm_menu.1
         unfallen_empire.1
     }

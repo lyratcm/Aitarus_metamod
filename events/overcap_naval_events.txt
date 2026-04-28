@@ -1,3 +1,4 @@
+# first draft by lyra
 namespace = overcap_naval
 
 #change this to change the penalty for being over naval cap, 0 is normal upkeep, 1x is doubled etc

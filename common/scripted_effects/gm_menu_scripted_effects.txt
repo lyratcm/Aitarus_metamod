@@ -1,5 +1,6 @@
 gm_menu_scope_switch = {
     #all scopes that have unqiue event effects todo: workout fallbacks
+    # when triggered from the button it works out what your looking at then triggers an event for that scope
     switch = {
         trigger = is_scope_type
         country = { country_event = { id = gm_menu.3 } }

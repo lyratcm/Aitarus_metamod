@@ -1,3 +1,5 @@
+#format stolen from PSE and bearly understand it my self
+#todo change the icon to be not pse if ever publishing to not steal assets
 spriteTypes = {
 	spriteType = {
 		name = "GFX_gm_menu_button"

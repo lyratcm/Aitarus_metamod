@@ -1,3 +1,4 @@
+#this button won't be triggerable in the final version and the trigger will be moved into a separate mod to prevent non-hosts from using it
 gm_menu_button = {
 	potential = {
 		# will never be seen
@@ -7,7 +8,7 @@ gm_menu_button = {
 	allow = {
 	}
 	effect = {
-		custom_tooltip = edict_pse_psi_ruler_ui_tooltip
+		custom_tooltip = gm_menu_button_tooltip
 		# print_scope_effect = yes
 		hidden_effect = {
 			gm_menu_scope_switch = yes
