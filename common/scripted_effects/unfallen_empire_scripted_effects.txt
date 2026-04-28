@@ -1,0 +1,32 @@
+#lifted from acot start with x tech tier origins
+unfallen_empire_get_all_tech = {
+	create_country = {
+		name = random
+
+		type = unfallen_empire_tech_country
+
+		flag = {
+			icon = {
+				category = "special"
+				file = "the_shroud.dds"
+			}
+			background= {
+				category = "backgrounds"
+				file = "00_solid.dds"
+			}
+			colors={
+				"black"
+				"black"
+				"null"
+				"null"
+			}
+		}
+		ignore_initial_colony_error = yes
+	}
+	copy_techs_from = {
+		target = last_created_country
+	}
+	last_created_country = {
+		destroy_country = yes
+	}
+}

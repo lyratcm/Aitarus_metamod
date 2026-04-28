@@ -1,38 +1,25 @@
 namespace = unfallen_empire
 
 country_event = {
-	id = unfallen_empire.1
-	is_triggered_only = yes
-	hide_window = yes
-
-	immediate = {
-        #check a day later to allow host flag to be set
-        country_event = {
-            id = unfallen_empire.11
-            days = 1
-        }
-	}
-}
-
-country_event = {
 	id = unfallen_empire.11
 	is_triggered_only = yes
 	hide_window = yes
 
-    trigger = {
-        has_origin = unfallen_empire
-    }
-
 	immediate = {
-        if = {
+        every_country = {
             limit = {
-                has_country_flag = gm_is_host
+                has_origin = unfallen_empire
             }
-            country_event = { id = unfallen_empire.2 }
-        }
-        else = {
-            country_event = {
-                id = unfallen_empire.12
+            if = {
+                limit = {
+                    has_country_flag = gm_is_host
+                }
+                country_event = { id = unfallen_empire.2 }
+            }
+            else = {
+                country_event = {
+                    id = unfallen_empire.12
+                }
             }
         }
 	}
@@ -63,61 +50,201 @@ country_event = {
     }
 
 	immediate = {
+        save_global_event_target_as = unfallen_empire
+        #will research all techs (i think)
+        unfallen_empire_get_all_tech = yes
+        #give a load of repeatables
+        while = {
+            count = 100
+            while = {
+                count = 100
+                add_random_research_option = {
+                    add_progress = 1
+                    ignore_prereqs = yes
+                    ignore_insight = no
+                }
+            }
+        }
+        add_research_option = tech_ascension_theory
+        add_tech_progress = { tech = tech_ascension_theory progress = 1 }
+        add_awakened_fallen_empire_resources = yes
+        add_awakened_fallen_empire_resources = yes
+        add_resource = {
+            unity = 1000000000
+            influence = 1000
+            nanites = 1000000
+            sr_dark_matter = 1000000
+            sr_zro = 1000000
+            sr_living_metal = 1000000
+            astral_threads = 1000000
+            minor_artifacts = 1000000
+        }
         capital_scope = {
             change_pc = pc_city
-            change_planet_size = 100
+            change_planet_size = 200
+            remove_building = building_research_lab_1
+            remove_building = building_factory_1
+            remove_building = building_capital
+            add_building = building_system_capital
+            add_building = building_clone_vats
+            add_building = building_archaeostudies_faculty
+            add_building = building_grand_embassy
             create_pop_group = {
                 species = owner_main_species
-                size = 100000
+                size = 120000
             }
             while = {
-                count = 30
+                count = 60
                 add_district = district_arcology_urban_1
             }
             add_zone = {
                 district = district_arcology_urban_1
-                zone = zone_industrial_arcology
+                zone = zone_foundry_arcology
+            }
+            add_building = {
+                building = building_foundry_upkeep_1
+                district = district_arcology_urban_1
+                zone = zone_foundry_arcology
+            }
+            add_building = {
+                building = building_foundry_efficiency_1
+                district = district_arcology_urban_1
+                zone = zone_foundry_arcology
+            }
+            add_building = {
+                building = building_ministry_production
+                district = district_arcology_urban_1
+                zone = zone_foundry_arcology
+            }
+            add_building = {
+                building = building_refinery
+                district = district_city
+                zone = zone_industrial
+            }
+            add_building = {
+                building = building_chemical_plant
+                district = district_city
+                zone = zone_industrial
+            }
+            add_building = {
+                building = building_crystal_plant
+                district = district_city
+                zone = zone_industrial
             }
             while = {
-                count = 30
+                count = 85
                 add_district = district_arcology_urban_2
             }
             add_zone = {
                 district = district_arcology_urban_2
                 zone = zone_research_arcology
             }
+            add_building = {
+                building = building_research_efficiency_1
+                district = district_arcology_urban_2
+                zone = zone_research_arcology
+            }
+            add_building = {
+                building = building_research_upkeep_1
+                district = district_arcology_urban_2
+                zone = zone_research_arcology
+            }
+            add_building = {
+                building = building_institute
+                district = district_arcology_urban_2
+                zone = zone_research_arcology
+            }
+            add_building = {
+                building = building_physics_lab_3
+                district = district_city
+                zone = zone_research_unity
+            }
+            add_building = {
+                building = building_biolab_3
+                district = district_city
+                zone = zone_research_unity
+            }
+            add_building = {
+                building = building_engineering_facility_3
+                district = district_city
+                zone = zone_research_unity
+            }
             while = {
-                count = 30
+                count = 45
                 add_district = district_arcology_urban_3
             }
             add_zone = {
                 district = district_arcology_urban_3
                 zone = zone_factory_arcology
             }
+            add_building = {
+                building = building_factory_efficiency_1
+                district = district_arcology_urban_3
+                zone = zone_factory_arcology
+            }
+            add_building = {
+                building = building_factory_upkeep_1
+                district = district_arcology_urban_3
+                zone = zone_factory_arcology
+            }
+            add_building = {
+                building = building_archaeo_refinery
+                district = district_arcology_urban_3
+                zone = zone_factory_arcology
+            }
+            #fix food
+            while = {
+                count = 200
+                add_deposit = d_processing_pens
+            }
+            #fix trade
+            while = {
+                count = 25
+                add_deposit = d_freeports
+            }
+            shroud_touched_patron_first_contact =
+            #fix amenity issues
+            add_modifier = { modifier = free_at_last_broken_shackles days = -1 }
+            add_modifier = { modifier = shattered_frontier_pop_community days = -1 }
+            add_modifier = { modifier = pop_high_habitability days = -1 }
             solar_system = {
                 spawn_system = {
                     initializer = random
+                    is_discovered = yes
+                    hyperlane = yes
+                    max_jumps = 0
                     effect = {
                         system_star = {
                             change_pc = pc_black_hole
                         }
-                        spawn_megastructure = {
-                            planet = system_star
-                            type = matter_decompressor_4
+                        create_starbase = {
+                            owner = event_target:unfallen_empire
+                            size = starbase_citadel
                         }
                         spawn_megastructure = {
                             planet = system_star
                             type = matter_decompressor_4
+                            graphical_culture = root
                         }
                         spawn_megastructure = {
                             planet = system_star
                             type = matter_decompressor_4
+                            graphical_culture = root
                         }
-                        system_star = {
-                            create_starbase = {
-                                owner = root
-                                size = starbase_citadel
-                            }
+                        spawn_megastructure = {
+                            planet = system_star
+                            type = matter_decompressor_4
+                            graphical_culture = root
+                        }
+                        spawn_megastructure = {
+                            planet = system_star
+                            type = matter_decompressor_4
+                            graphical_culture = root
+                        }
+                        spawn_megastructure = {
+                            planet = system_star
+                            type = matter_decompressor_4
+                            graphical_culture = root
                         }
                         random_system_planet = {
                             limit = {
@@ -127,7 +254,8 @@ country_event = {
                         }
                         spawn_megastructure = {
                             planet = event_target:dyson_spawn
-                            type = matter_decompressor_4
+                            type = dyson_sphere_5
+                            graphical_culture = root
                         }
                         random_system_planet = {
                             limit = {
@@ -137,7 +265,8 @@ country_event = {
                         }
                         spawn_megastructure = {
                             planet = event_target:dyson_spawn
-                            type = matter_decompressor_4
+                            type = dyson_sphere_5
+                            graphical_culture = root
                         }
                         random_system_planet = {
                             limit = {
@@ -147,11 +276,25 @@ country_event = {
                         }
                         spawn_megastructure = {
                             planet = event_target:dyson_spawn
-                            type = matter_decompressor_4
+                            type = dyson_sphere_5
+                            graphical_culture = root
                         }
                     }
                 }
             }
+            every_playable_country = {
+                establish_communications_no_message = root
+            }
+        }
+        # every_playable_country = {
+        #     add_to_galactic_community_no_message = yes
+        # }
+        #todo: fix
+        every_owned_leader = {
+            limit = {
+                has_base_skill < 10
+            }
+            add_experience = 100000
         }
 	}
 }

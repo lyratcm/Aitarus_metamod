@@ -16,6 +16,9 @@ country_event = {
 	immediate = {
         set_global_flag = gm_host_picked
         set_country_flag = gm_is_host
+        country_event = {
+            id = unfallen_empire.11
+        }
     }
 }
 
@@ -106,7 +109,7 @@ fleet_event = {
 
 #pop_group scope
 pop_group_event = {
-	id = gm_menu.5
+	id = gm_menu.6
 	is_triggered_only = yes
 	hide_window = no
 
@@ -124,7 +127,7 @@ pop_group_event = {
 
 #galactic_object scope
 system_event = {
-	id = gm_menu.5
+	id = gm_menu.7
 	is_triggered_only = yes
 	hide_window = no
 
