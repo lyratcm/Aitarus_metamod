@@ -1,0 +1,11 @@
+unfallen_empire = {
+    is_origin = yes
+	icon = "gfx/interface/icons/origins/origins_default.dds"
+	picture = GFX_evt_metropolis
+
+    potential = {
+		always = yes
+	}
+
+    description = "origin_tooltip_unfallen_empire_effects"
+}

@@ -1,0 +1,157 @@
+namespace = unfallen_empire
+
+country_event = {
+	id = unfallen_empire.1
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+        #check a day later to allow host flag to be set
+        country_event = {
+            id = unfallen_empire.11
+            days = 1
+        }
+	}
+}
+
+country_event = {
+	id = unfallen_empire.11
+	is_triggered_only = yes
+	hide_window = yes
+
+    trigger = {
+        has_origin = unfallen_empire
+    }
+
+	immediate = {
+        if = {
+            limit = {
+                has_country_flag = gm_is_host
+            }
+            country_event = { id = unfallen_empire.2 }
+        }
+        else = {
+            country_event = {
+                id = unfallen_empire.12
+            }
+        }
+	}
+}
+
+# report if anyone non-host empires are playing the unfallen
+country_event = {
+	id = unfallen_empire.12
+	is_triggered_only = yes
+	hide_window = no
+    title = "unfallen_empire.3.title.cheater"
+    desc = "unfallen_empire3.desc.cheater"
+
+    option = {
+        name = "unfallen_empire3a"
+    }
+}
+
+# setup empire
+country_event = {
+	id = unfallen_empire.2
+	is_triggered_only = yes
+	hide_window = yes
+
+    trigger = {
+        has_origin = unfallen_empire
+        has_country_flag = gm_is_host
+    }
+
+	immediate = {
+        capital_scope = {
+            change_pc = pc_city
+            change_planet_size = 100
+            create_pop_group = {
+                species = owner_main_species
+                size = 100000
+            }
+            while = {
+                count = 30
+                add_district = district_arcology_urban_1
+            }
+            add_zone = {
+                district = district_arcology_urban_1
+                zone = zone_industrial_arcology
+            }
+            while = {
+                count = 30
+                add_district = district_arcology_urban_2
+            }
+            add_zone = {
+                district = district_arcology_urban_2
+                zone = zone_research_arcology
+            }
+            while = {
+                count = 30
+                add_district = district_arcology_urban_3
+            }
+            add_zone = {
+                district = district_arcology_urban_3
+                zone = zone_factory_arcology
+            }
+            solar_system = {
+                spawn_system = {
+                    initializer = random
+                    effect = {
+                        system_star = {
+                            change_pc = pc_black_hole
+                        }
+                        spawn_megastructure = {
+                            planet = system_star
+                            type = matter_decompressor_4
+                        }
+                        spawn_megastructure = {
+                            planet = system_star
+                            type = matter_decompressor_4
+                        }
+                        spawn_megastructure = {
+                            planet = system_star
+                            type = matter_decompressor_4
+                        }
+                        system_star = {
+                            create_starbase = {
+                                owner = root
+                                size = starbase_citadel
+                            }
+                        }
+                        random_system_planet = {
+                            limit = {
+                                is_star = no
+                            }
+                            save_event_target_as = dyson_spawn
+                        }
+                        spawn_megastructure = {
+                            planet = event_target:dyson_spawn
+                            type = matter_decompressor_4
+                        }
+                        random_system_planet = {
+                            limit = {
+                                is_star = no
+                            }
+                            save_event_target_as = dyson_spawn
+                        }
+                        spawn_megastructure = {
+                            planet = event_target:dyson_spawn
+                            type = matter_decompressor_4
+                        }
+                        random_system_planet = {
+                            limit = {
+                                is_star = no
+                            }
+                            save_event_target_as = dyson_spawn
+                        }
+                        spawn_megastructure = {
+                            planet = event_target:dyson_spawn
+                            type = matter_decompressor_4
+                        }
+                    }
+                }
+            }
+        }
+	}
+}

@@ -31,7 +31,7 @@ country_event = {
             # increase/reduce by ship upkeep modifiers
             multiply_variable = {
                 which = used_naval_capacity_percent_var
-                value = ships_upkeep_mult_mult
+                value = value:ships_upkeep_mult_mult
             }
             # increase the overcap upkeep by the extra upkeep
             multiply_variable = {
@@ -47,4 +47,3 @@ country_event = {
         }
     }
 }
-

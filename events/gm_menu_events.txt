@@ -51,6 +51,14 @@ country_event = {
         }
         add_modifier = { modifier = cosmogenesis_superlight }
     }
+
+    option = {
+        name = gm_menu.4a
+        allow = {
+            not = { has_modifier = extra_naval_capacity }
+        }
+        add_modifier = { modifier = extra_naval_capacity }
+    }
 }
 
 #ship scope

@@ -1,0 +1,4 @@
+extra_naval_capacity = {
+    country_naval_cap_mult = 1
+    icon = "gfx/interface/icons/planet_modifiers/pm_planet_surface.dds"
+}

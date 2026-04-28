@@ -1,0 +1,5 @@
+﻿l_english:
+ origin_tooltip_unfallen_empire_effects: "Gives a fallen empire level start without the country type or restrictions\n§RThis origin should only be picked if you have been pre-approved by the host§!"
+ unfallen_empire.3.title.cheater: "Cheating empire"
+ unfallen_empire3.desc.cheater: "[root.getname] is playing the unfallen empire without being the host"
+ unfallen_empire3a: "I see"
