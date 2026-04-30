@@ -51,7 +51,7 @@ country_event = {
 
 	immediate = {
         save_global_event_target_as = unfallen_empire
-        #will research all techs (i think)
+        #will research almost all techs (i think)
         unfallen_empire_get_all_tech = yes
         #give a load of repeatables
         while = {
@@ -65,8 +65,22 @@ country_event = {
                 }
             }
         }
-        add_research_option = tech_ascension_theory
-        add_tech_progress = { tech = tech_ascension_theory progress = 1 }
+        give_technology = { tech = tech_ascension_theory message = no }
+        give_technology = { tech = tech_galactic_markets message = no }
+        if = {
+            limit = {
+                country_uses_bio_ships = no
+            }
+            give_technology = { tech = tech_cosmogenesis_escort message = no }
+            give_technology = { tech = tech_cosmogenesis_battlecruiser message = no }
+            give_technology = { tech = tech_cosmogenesis_FE_titan message = no }
+        }
+        else = {
+            give_technology = { tech = tech_cosmogenesis_weaver message = no }
+            give_technology = { tech = tech_cosmogenesis_mauler message = no }
+            give_technology = { tech = tech_cosmogenesis_harbinger message = no }
+            give_technology = { tech = tech_cosmogenesis_stinger message = no }
+        }
         add_awakened_fallen_empire_resources = yes
         add_awakened_fallen_empire_resources = yes
         add_resource = {
@@ -81,20 +95,34 @@ country_event = {
         }
         capital_scope = {
             change_pc = pc_city
-            change_planet_size = 200
+            change_planet_size = 25
+            create_starbase = {
+                size = orbital_ring_tier_3
+                owner = root
+                module = orbital_ring_habitation
+                module = orbital_ring_habitation
+                module = orbital_ring_habitation
+                module = orbital_ring_habitation
+                building = ring_consumer_goods_hub
+                building = ring_alloys_hub
+                effect = { }
+            }
+            remove_district = district_arcology_housing
             remove_building = building_research_lab_1
             remove_building = building_factory_1
             remove_building = building_capital
             add_building = building_system_capital
             add_building = building_clone_vats
             add_building = building_archaeostudies_faculty
+            add_building = building_galactic_stock_exchange
             add_building = building_grand_embassy
+            clear_blockers = yes
             create_pop_group = {
                 species = owner_main_species
-                size = 120000
+                size = 40000
             }
             while = {
-                count = 60
+                count = 15
                 add_district = district_arcology_urban_1
             }
             add_zone = {
@@ -132,7 +160,7 @@ country_event = {
                 zone = zone_industrial
             }
             while = {
-                count = 85
+                count = 20
                 add_district = district_arcology_urban_2
             }
             add_zone = {
@@ -170,7 +198,7 @@ country_event = {
                 zone = zone_research_unity
             }
             while = {
-                count = 45
+                count = 12
                 add_district = district_arcology_urban_3
             }
             add_zone = {
@@ -194,15 +222,14 @@ country_event = {
             }
             #fix food
             while = {
-                count = 200
+                count = 100
                 add_deposit = d_processing_pens
             }
             #fix trade
             while = {
-                count = 25
+                count = 20
                 add_deposit = d_freeports
             }
-            shroud_touched_patron_first_contact =
             #fix amenity issues
             add_modifier = { modifier = free_at_last_broken_shackles days = -1 }
             add_modifier = { modifier = shattered_frontier_pop_community days = -1 }
@@ -286,10 +313,11 @@ country_event = {
                 establish_communications_no_message = root
             }
         }
+        # will be used later for emperor stuff
         # every_playable_country = {
         #     add_to_galactic_community_no_message = yes
         # }
-        #todo: fix
+        # todo: fix
         every_owned_leader = {
             limit = {
                 has_base_skill < 10
