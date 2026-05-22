@@ -1,7 +1,7 @@
 unfallen_empire = {
     is_origin = yes
 	icon = "gfx/interface/icons/origins/origins_default.dds"
-	picture = GFX_evt_metropolis
+	picture = GFX_unfallen_empire
 
     potential = {
 		always = yes

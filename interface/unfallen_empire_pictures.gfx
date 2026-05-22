@@ -1,0 +1,9 @@
+spriteTypes = {
+
+    spriteType = {
+        name = "GFX_unfallen_empire"
+        texturefile = "gfx/event_pictures/fallen_empire_awakes.dds"
+        masking_texture = "gfx/interface/situation_log/event_mask.dds"
+        alwaystransparent = yes
+    }
+}
